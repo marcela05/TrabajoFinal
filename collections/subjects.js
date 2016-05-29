@@ -42,7 +42,7 @@ Subjects.attachSchema(new SimpleSchema({
 	teacher: {
 		type: String,
 		label: "Profesor"
-	}
+	},
 	createdBy: {
 	    type: String,
 	    autoValue: function() {

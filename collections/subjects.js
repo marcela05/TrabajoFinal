@@ -6,6 +6,21 @@ Subjects.allow({
 	}
 });
 
+Schedule = new SimpleSchema({
+	day: {
+		type: String,
+		label: "Día"
+		// allowedValues: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+	},
+	hour: {
+		type: String,
+		label: "Hora",
+		autoform:{
+	      placeholder: 'Ejm.: 08:00 - 10:00, 14:00 - 18:00',
+	    }
+	}
+});
+
 Subjects.attachSchema(new SimpleSchema({
 	code: {
 		type: String,
@@ -42,6 +57,9 @@ Subjects.attachSchema(new SimpleSchema({
 	teacher: {
 		type: String,
 		label: "Profesor"
+	},
+	schedule: {
+		type: [Schedule]
 	},
 	createdBy: {
 	    type: String,

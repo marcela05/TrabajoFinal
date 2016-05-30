@@ -49,10 +49,7 @@ Subjects.attachSchema(new SimpleSchema({
 	},
 	status: {
 		type: Boolean,
-		label: "Activa",
-	    autoform: {
-	      	type:"switch"
-	    }
+		label: "Activa"
 	},
 	teacher: {
 		type: String,

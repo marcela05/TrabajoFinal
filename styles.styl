@@ -229,7 +229,10 @@ input, select, textarea
         border none
         background transparent
 
-input:focus
+input.checked
+	width 12px
+
+input:focus ,textarea:focus
     box-shadow 0 0 5px rgba(153, 189, 223, 1)
     border 1px solid rgba(153, 189, 223, 1)
 

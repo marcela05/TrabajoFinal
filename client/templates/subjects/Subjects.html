@@ -1,4 +1,10 @@
 <template name="Subjects">
-	<h3>Todas las materias</h3>
-	<!-- {{> NewSubject}} -->
+	
+	<section class="recipes">
+		<h3>Todas las materias</h3>
+		{{#each subjects}}
+			{{name}}
+		{{/each}}
+	</section>
+	
 </template>

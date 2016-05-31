@@ -5,3 +5,7 @@ Meteor.publish('teachers', function (){
 Meteor.publish('subjects', function (){
 	return Subjects.find();
 });
+
+Meteor.publish('semesters', function (){
+	return Semesters.find();
+});

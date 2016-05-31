@@ -9,15 +9,39 @@ Subjects.allow({
 Schedule = new SimpleSchema({
 	day: {
 		type: String,
-		label: "Día"
-		// allowedValues: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+		label: "Día",
+		allowedValues: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 	},
-	hour: {
+	hourStart: {
 		type: String,
-		label: "Hora",
-		autoform:{
-	      placeholder: 'Ejm.: 08:00 - 10:00, 14:00 - 18:00',
-	    }
+		label: "Hora inicio",
+		allowedValues: ['07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00']
+	},
+	hourEnd: {
+		type: String,
+		label: "Hora fin",
+		allowedValues: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+	},
+	schedule: {
+		type: String,
+		label: "Jornada",
+		allowedValues: ['Diurna', 'Nocturna'] 
+	}
+});
+
+Teacher = new SimpleSchema({
+	teacher: {
+		type: String,
+		label: "Profesor",
+		autoform: {
+            options: function () {
+                return Teachers.find().map((object) => ({label: object.name + " " + object.lastname, value: object._id}));
+            }
+        }
+	},
+	schedule: {
+		type: Schedule,
+		label: "Horario"
 	}
 });
 
@@ -30,7 +54,7 @@ Subjects.attachSchema(new SimpleSchema({
 		type: String,
 		label: "Nombre"
 	},
-	descripction: {
+	description: {
 		type: String,
 		label: "Descripción"
 	},
@@ -38,25 +62,16 @@ Subjects.attachSchema(new SimpleSchema({
 		type: String,
 		label: "Semestre"
 	},
-	program: {
-		type: String,
-		label: "Programa"
-	},
-	time: {
-		type: String,
-		label: "Jornada",
-		allowedValues: ['Diurno', 'Nocturno']
-	},
-	status: {
+	diurnal: {
 		type: Boolean,
-		label: "Activa"
+		label: "Jorna diurna"
+	},
+	nocturnal: {
+		type: Boolean,
+		label: "Jorna nocturna"
 	},
 	teacher: {
-		type: String,
-		label: "Profesor"
-	},
-	schedule: {
-		type: [Schedule]
+		type: [Teacher]
 	},
 	createdBy: {
 	    type: String,

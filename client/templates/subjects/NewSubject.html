@@ -1,6 +1,20 @@
 <template name="NewSubject">
 	<div class="new-container">
 		<h3>Agregar asignatura</h3>
-		{{> quickForm collection="Subjects" id="insertSubjectForm" type="insert" class="new-recipe-form"}}
+
+		{{#autoForm collection="Subjects" id="insertSubjectForm" type="insert" class="new-recipe-form"}}
+	    <!-- <fieldset> -->
+	      <!-- <legend>Agregar una materia</legend> -->
+	      {{> afQuickField name='code'}}
+	      {{> afQuickField name='name'}}
+	      {{> afQuickField name='description' rows=6}}
+	      {{> afQuickField name='semester' options=semesters}}
+	      {{> afQuickField name='diurnal'}}
+	      {{> afQuickField name='nocturnal'}}
+	      {{> afQuickField name='teacher'}}
+	    <!-- </fieldset> -->
+	    <button type="submit" class="btn btn-primary">Guardar</button>
+	  {{/autoForm}}
+
 	</div>
 </template>

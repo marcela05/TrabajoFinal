@@ -64,7 +64,7 @@ social = {
     youtube: #bb0000
 }
  
-$side-nav = 100px
+$side-nav = 150px
 $side-nav-large = 200px
  
 html
@@ -128,7 +128,7 @@ p
 .new-recipe
     margin-bottom 20px
  
-.new-recipe-container
+.new-container
     position relative
     background #FFF
     padding 20px
@@ -289,14 +289,15 @@ span.help-block
         text-decoration none
         padding 20px 20px
         display block
-        text-align center
+        text-align left
         trans()
         &:hover, &.active
             background purp
     i
-        display block
-        font-size 2em
-        margin-bottom 10px
+        display inline-block
+        float right
+        font-size 15px
+        margin-top 2px
     +above($med)
         height 100%
         z-index: z.mid
@@ -316,7 +317,24 @@ span.help-block
             padding 20px 20px
             &:hover, &.active
                 border-left 10px solid teal
- 
+
+ul.submenu
+	font-size 12px
+	display none
+
+li ul {display: none;} 
+
+a.subitem-info
+	color gray
+	padding-left 15px;
+
+.subitem-info-active
+	border-left 4px solid teal
+	background purp
+
+.subitem-info:hover
+	color white
+
 .recipe
     background #FFF
     padding 0 20px 20px

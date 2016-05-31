@@ -1,8 +1,24 @@
 <template name="SideNav">
 	<nav class="side-nav">
 		<ul>
-			<li><a href="/teachers"><i class="fa fa-list"></i>Teachers</a></li>
-			<li><a href="/subjects"><i class="fa fa-map-o"></i>Subjects</a></li>
+			{{#each collections}}
+		    <li class="treeview">
+		    	<a href="{{path}}">
+		            <span>{{title}}</span>
+		            <i id="{{title}}-angle" class="fa fa-angle-left pull-right"></i>
+		        </a>
+		            <ul id="{{title}}" class="submenu">
+		            {{#each subitems}}
+		                <li class="subitem">
+		                    <a href="{{path}}" id="{{name}}" class="subitem-info">
+		                        <i class="{{icon}}"></i>
+		                        <span> {{text}}</span>
+		                    </a> 
+		                </li>
+		            {{/each}}
+		            </ul>
+		    </li>
+		    {{/each}}
 		</ul>	
 	</nav>
 </template>
